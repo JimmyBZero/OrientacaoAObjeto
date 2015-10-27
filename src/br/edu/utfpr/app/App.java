@@ -24,16 +24,15 @@ public class App {
         Pessoa felipe = new Pessoa("Felipe", "Yoshi", 16);
         
         Dao dao = new PessoaDaoDerby();
+        dao.listarTudo();
+     
         
         
-//        dao.adicionar(joao);
-//        dao.adicionar(felipe);
-//        dao.adicionar(maria);
-//        dao.listarTudo();
-//        
-//        System.out.println("Remover !");
+//        dao.remover(joao);
 //        dao.remover(felipe);
+//        dao.remover(maria);
 //        dao.listarTudo();
+
         
         
         

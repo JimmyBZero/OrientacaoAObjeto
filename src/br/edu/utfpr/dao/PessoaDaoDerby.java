@@ -8,6 +8,7 @@ package br.edu.utfpr.dao;
 import br.edu.utfpr.modelo.Pessoa;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -61,7 +62,23 @@ public class PessoaDaoDerby implements Dao{
 
     @Override
     public void listarTudo() {
-       
+        String instrucao = "SELECT * FROM PESSOA";
+        
+        try{
+            
+            //um select traz resultados que precisam ser armazenados.
+            //vou executar e armazenar o resultado.
+            
+            ResultSet rs = stmt.executeQuery(instrucao);
+            
+            while (rs.next()){
+                System.out.println("Nome: " + rs.getString("NOME") + "Sobrenome: " + rs.getString("SOBRENOME") + "Idade: " + rs.getString("IDADE"));
+            }
+            
+        }catch(SQLException se){
+            System.out.println("Mensagem: " + se.getMessage());
+        }
+        
     }
     
     
