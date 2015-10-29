@@ -14,12 +14,14 @@ public class Pessoa {
     private String nome;
     private String sobrenome;
     private int idade;
+    private int codigo;
             
     
-    public Pessoa(String nome, String sobrenome, int idade){
+    public Pessoa(String nome, String sobrenome, int idade, int codigo){
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.idade = idade;
+        this.codigo = codigo;
     }
     
     public String getNome(){
@@ -41,6 +43,15 @@ public class Pessoa {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
     
    
     

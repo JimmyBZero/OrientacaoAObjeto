@@ -22,9 +22,9 @@ public class PessoaDaoDerby implements Dao{
     
     //quando eu construir um objeto dessa classe, vou conectar no banco.
     public PessoaDaoDerby(){
-        String username = "jimmy";
+        String username = "theBoss";
         String password = "123";
-        String url = "jdbc:derby://localhost:1527/MeuBanco";
+        String url = "jdbc:derby://localhost:1527/BancoJ";
         
         //depois disso, posso mandar conectar
         try{
@@ -39,8 +39,8 @@ public class PessoaDaoDerby implements Dao{
     
     @Override
     public void adicionar(Pessoa p) {
-        String instrucao = "INSERT INTO PESSOA (NOME, SOBRENOME, IDADE) VALUES ("
-        + "'" +  p.getNome() + "', " + "'" + p.getSobrenome() + "', " + p.getIdade() + ")";
+        String instrucao = "INSERT INTO PESSOA (NOME, SOBRENOME, IDADE, CODIGO) VALUES ("
+        + "'" +  p.getNome() + "', " + "'" + p.getSobrenome() + "', " + p.getIdade() + ", " +p.getCodigo() + ")";
         System.out.println(instrucao);
         try{
             stmt.executeUpdate(instrucao);
@@ -51,7 +51,7 @@ public class PessoaDaoDerby implements Dao{
 
     @Override
     public void remover(Pessoa p) {
-        String instrucao = "DELETE FROM PESSOA WHERE NOME = " + "'" + p.getNome() + "'";
+        String instrucao = "DELETE FROM PESSOA WHERE CODIGO = " + "'" + p.getCodigo() + "'";
         System.out.println(instrucao);
         try{
             stmt.executeUpdate(instrucao);
@@ -72,7 +72,8 @@ public class PessoaDaoDerby implements Dao{
             ResultSet rs = stmt.executeQuery(instrucao);
             
             while (rs.next()){
-                System.out.println("Nome: " + rs.getString("NOME") + " Sobrenome: " + rs.getString("SOBRENOME") + " Idade: " + rs.getString("IDADE"));
+                System.out.println("Nome: " + rs.getString("NOME") + " Sobrenome: " + rs.getString("SOBRENOME") + " Idade: " + rs.getString("IDADE") +
+                       " Codigo: " + rs.getString("CODIGO") );
             }
             
         }catch(SQLException se){

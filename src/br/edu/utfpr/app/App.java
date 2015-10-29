@@ -19,14 +19,15 @@ public class App {
     
     public static void main(String[] args) {
         
-        Pessoa joao = new Pessoa("Joao", "Silva", 20);
-        Pessoa maria = new Pessoa("Maria", "Nunes", 22);
-        Pessoa felipe = new Pessoa("Felipe", "Yoshi", 16);
+        Pessoa joao = new Pessoa("Joao", "Silva", 20, 0001);
+        Pessoa maria = new Pessoa("Maria", "Nunes", 22, 0002);
+        Pessoa felipe = new Pessoa("Felipe", "Yoshi", 16, 0003);
         
         Dao dao = new PessoaDaoDerby();
-        dao.listarTudo();
-     
-        
+        //dao.listarTudo();
+        //dao.adicionar(joao);
+
+
         
 //        dao.remover(joao);
 //        dao.remover(felipe);
