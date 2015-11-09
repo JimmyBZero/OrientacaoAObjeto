@@ -35,6 +35,11 @@ public class PessoaDaoVetor implements Dao{
     }
 
     @Override
+    public void remover(int id) {
+       
+    }   
+    
+    @Override
     public void listarTudo() {
         System.out.println("Listando..");
     }

@@ -33,6 +33,11 @@ public class PessoaDaoArrayList implements Dao{
     }   
 
     @Override
+    public void remover(int id) {
+    
+    }   
+    
+    @Override
     public void listarTudo(){
         //Temos que percorrer o Arraylist
         //de sua posição inicial até a final... mas qual final??

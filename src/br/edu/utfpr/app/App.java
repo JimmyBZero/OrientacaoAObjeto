@@ -25,9 +25,9 @@ public class App {
         
         Dao dao = new PessoaDaoDerby();
         //dao.listarTudo();
-        //dao.adicionar(joao);
+        dao.adicionar(maria);
 
-
+        //dao.remover(2);
         
 //        dao.remover(joao);
 //        dao.remover(felipe);

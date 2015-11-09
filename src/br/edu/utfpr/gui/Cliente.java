@@ -46,6 +46,7 @@ public class Cliente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jtfCodigo = new javax.swing.JTextField();
         jtExcluir = new javax.swing.JButton();
+        jtListar = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -72,10 +73,23 @@ public class Cliente extends javax.swing.JFrame {
 
         jLabel4.setText("Codigo");
 
+        jtfCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfCodigoActionPerformed(evt);
+            }
+        });
+
         jtExcluir.setText("Excluir");
         jtExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtExcluirActionPerformed(evt);
+            }
+        });
+
+        jtListar.setText("Listar");
+        jtListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtListarActionPerformed(evt);
             }
         });
 
@@ -102,9 +116,10 @@ public class Cliente extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtfNome, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jtSalvar)
-                            .addComponent(jtExcluir))
+                            .addComponent(jtExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jtListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(26, 26, 26))))
         );
         layout.setVerticalGroup(
@@ -125,12 +140,14 @@ public class Cliente extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtfIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jtfIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtListar))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,8 +167,19 @@ public class Cliente extends javax.swing.JFrame {
     private void jtExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtExcluirActionPerformed
         // TODO add your handling code here:
         //EXCLUIR ALGUM CLIENTE DO BANCO DE DADOS.
-        
+        String codigo = jtfCodigo.getText();
+        dao.remover(Integer.parseInt(codigo));
     }//GEN-LAST:event_jtExcluirActionPerformed
+
+    private void jtListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtListarActionPerformed
+        dao.listarTudo();// TODO add your handling code here:
+    }//GEN-LAST:event_jtListarActionPerformed
+
+    private void jtfCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCodigoActionPerformed
+        String codigo = jtfCodigo.getText();
+        
+// TODO add your handling code here:
+    }//GEN-LAST:event_jtfCodigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,6 +223,7 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JButton jtExcluir;
+    private javax.swing.JButton jtListar;
     private javax.swing.JButton jtSalvar;
     private javax.swing.JTextField jtfCodigo;
     private javax.swing.JTextField jtfIdade;

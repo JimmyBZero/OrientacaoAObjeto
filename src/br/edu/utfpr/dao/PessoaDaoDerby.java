@@ -24,7 +24,7 @@ public class PessoaDaoDerby implements Dao{
     public PessoaDaoDerby(){
         String username = "theBoss";
         String password = "123";
-        String url = "jdbc:derby://localhost:1527/BancoJ";
+        String url = "jdbc:derby://localhost:1527/MyDataBase";
         
         //depois disso, posso mandar conectar
         try{
@@ -40,7 +40,7 @@ public class PessoaDaoDerby implements Dao{
     @Override
     public void adicionar(Pessoa p) {
         String instrucao = "INSERT INTO PESSOA (NOME, SOBRENOME, IDADE, CODIGO) VALUES ("
-        + "'" +  p.getNome() + "', " + "'" + p.getSobrenome() + "', " + p.getIdade() + ", " +p.getCodigo() + ")";
+        + "'" +  p.getNome() + "', " + "'" + p.getSobrenome() + "', " + p.getIdade() + ", " + p.getCodigo() + ")";
         System.out.println(instrucao);
         try{
             stmt.executeUpdate(instrucao);
@@ -51,7 +51,7 @@ public class PessoaDaoDerby implements Dao{
 
     @Override
     public void remover(Pessoa p) {
-        String instrucao = "DELETE FROM PESSOA WHERE CODIGO = " + "'" + p.getCodigo() + "'";
+        String instrucao = "DELETE FROM PESSOA WHERE CODIGO = " +   p.getCodigo();
         System.out.println(instrucao);
         try{
             stmt.executeUpdate(instrucao);
@@ -60,6 +60,17 @@ public class PessoaDaoDerby implements Dao{
         }
     }
 
+    @Override
+    public void remover(int id) {
+        String instrucao = "DELETE FROM PESSOA WHERE CODIGO = " + "" + id + "";
+        System.out.println(instrucao);
+        try{
+            stmt.executeUpdate(instrucao);
+        }catch (SQLException se){
+            System.out.println("Mensagem: " + se.getMessage());
+        }
+    }
+    
     @Override
     public void listarTudo() {
         String instrucao = "SELECT * FROM PESSOA";
